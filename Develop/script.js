@@ -1,3 +1,5 @@
+const moment = require("moment/moment");
+
 $(document).ready(function() {
 
     //What elements do I need from HTML as soon as page loads
@@ -5,13 +7,12 @@ $(document).ready(function() {
     var hours = $('.hour'); 
     var eventName = $('.event-name');
     var eventMessage = $('.event-message');
-    var eventHour = $('.event-hour');
+    var eventHour = $('.event-hour').val();
     var eventMin = $('.event-minutes');
     var title = ('#event-title');
     var description = ('#event-description');
-    var submit = $('#submit-btn');
+    var submitbtn = $('#submit-btn');
 
-    
     
     // Displays current time 
     function displayTime() {
@@ -30,42 +31,31 @@ $(document).ready(function() {
         element.appendChild(button);
     });
   
-    // // Need to print event details to calendar
+    // Need to print event details to calendar
 
-    // function printEventData (name, description) {
-    //   var eventName = $('<input>').addClass('event-name').text(name);
-    //   var eventDescription = $('<input>').addClass('event-description').text(description);
-    
-    // }
-    
-    
+    function submit (name, description, hour, minutes) {
+        // want to add title to eventName
+            //var name = title.append(eventName)
+        //want to add description to eventMessage 
+           //var description = description.append(eventMessage)
 
-      
-  
-    // }
+var m = moment().format("h, A");
+
       // Each timeblock needs to be color coded 
         //Maybe an if else statement for times
         // FOR loop for each div  
-            // if (moment().format(hh:mm).isBefore(hh: mm) (can put in an array string etc ) ) 
-                // add class past to div 
-                       // .addClass('past')
-            // else if (time is in current hr)
-                // add class current to div 
-                //   // .addClass('current')
-            // else if (time is hrs ahead)
-                //add class future to divs 
-                   // .addClass('future')
+           // if (moment(eventHour, 'AM' ).format("h, A").isBefore(m) {
+               // .addClass('past')
+           // } else if (moment(eventHour).format("h").isAfter(m) {
+            // .addClass('future)
+            // } else 
+                    // .addClass('current)
+
+           }
  
     
+    });
     
-    
-    // Classes I need to add 
-        //past class
-        //present class
-        //future class 
-        //saveBTN
-
     
 
     // need to import save options to local storage
-});
