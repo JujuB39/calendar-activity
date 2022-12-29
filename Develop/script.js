@@ -16,11 +16,11 @@ $(document).ready(function() {
     
     // Add saveBtn and textarea to all hour Classes
     hours.each((i, element) => {
-        const description = document.createElement('textarea')
-        description.setAttribute("class", "description")
-        description.setAttribute("name", "Event")
-        description.setAttribute("cols", "110")
-        description.setAttribute("rows", "2")
+        const description = document.createElement('textarea');
+        description.setAttribute("class", "description");
+        description.setAttribute("name", "Event");
+        description.setAttribute("cols", "110");
+        description.setAttribute("rows", "2");
         element.appendChild(description);
         const button = document.createElement('button');
         button.setAttribute('class', 'saveBtn');
@@ -55,19 +55,16 @@ $(document).ready(function() {
       // Save BTN function to local storage 
      function saveButton() {
         var save = $(this).prev().val();
-        var hourId =$(this).parent().get(0).id
+        var hourId =$(this).parent().get(0).id;
         localStorage.setItem(`description${hourId}`, save);
-        saveEvent.prepend("<p class=\"saved-event\">Your event has been saved</p>")
-        setTimeout(() => saveEvent.find('p:first').remove(), 5000)
+        saveEvent.prepend("<p class=\"saved-event\">Your event has been saved</p>");
+        setTimeout(() => saveEvent.find('p:first').remove(), 5000);
         
      }
 
 
     var saveBtn = $(".saveBtn");
-    saveBtn.on('click', saveButton)
-
-
-    
+    saveBtn.on('click', saveButton);
 
 });
   
