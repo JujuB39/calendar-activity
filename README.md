@@ -30,5 +30,7 @@ Once I finished that I knew that my HTML divs that stored each our all needed a 
 
 Once I completed that, I worked on getting my save button to work. In order to get this to work I had to incorporate local storage. I made sure to gather the values I needed first then set the items using local storage. I also made it so that it notified the user that their event was properly saved. With that notification I set a timer so that the notification would disappear after 5 seconds. Once I did that I needed to make sure that the event actually stayed on the page once the user refreshed the page. So I went back up to one of my .each functions and created a variable that got the text I needed and then I created an if statement to set that variable to the event text box. Lastly, I made very minor adjustment in CSS, just for appearance purposes. 
 
-## Screenshot of my page 
+## Screenshot of my page and link to deployed app
 ![alt text](./Develop/screenshot.png "Screenshot")
+
+https://jujub39.github.io/calendar-activity/Develop/index
