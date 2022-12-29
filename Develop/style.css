@@ -79,3 +79,13 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+.saved-event {
+  color: #ff6961;
+  font-size: large;
+}
+
+.save-img {
+  width: 40px;
+  height: 40px;
+}

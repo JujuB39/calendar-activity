@@ -1,13 +1,10 @@
-
-
 $(document).ready(function() {
 
     //What elements do I need from HTML as soon as page loads
     var currentTime = $('#currentDay');
     var hours = $('.hour'); 
     var currentHour = parseInt(moment().format("H"));
-    console.log(hours)
-
+    var saveEvent = $('.saved-event');
 
     // Displays current time 
     function displayTime() {
@@ -16,7 +13,7 @@ $(document).ready(function() {
     }
     setInterval(displayTime, 1000);
     
-
+    
     // Add saveBtn and textarea to all hour Classes
     hours.each((i, element) => {
         const description = document.createElement('textarea')
@@ -27,17 +24,24 @@ $(document).ready(function() {
         element.appendChild(description);
         const button = document.createElement('button');
         button.setAttribute('class', 'saveBtn');
+        const saveImg = document.createElement('img');
+        saveImg.setAttribute("src", "./saveimg.jpeg");
+        saveImg.setAttribute("alt", "save image");
+        saveImg.setAttribute("class", "save-img");
+
+        button.appendChild(saveImg);
         element.appendChild(button);
+        var storeEvent = localStorage.getItem(`description${element.id}`);
+
+        if (storeEvent) {
+            description.value = storeEvent
+        }
     });
 
     //For each, function to assign colors 
     hours.each(function () {
         let hour = $(this);
         let hourId = parseInt(hour.get(0).id);
-        console.log(currentHour);
-        console.log(hour)
-        // let colorHour = . parseInt(hoursDiv.id);
-       
 
         // if else statements for colors 
         if (currentHour === hourId) {
@@ -47,62 +51,31 @@ $(document).ready(function() {
         } else  {
             hour.addClass("past")
         }
-    
     })
+      
+      // Save BTN function to local storage 
+     function saveButton() {
+        var save = $(this).prev().val();
+        var hourId =$(this).parent().get(0).id
+        console.log(hourId)
+        localStorage.setItem(`description${hourId}`, save);
+        saveEvent.prepend("<p class=\"saved-event\">Your event has been saved</p>")
+        setTimeout(() => saveEvent.find('p:first').remove(), 5000)
         
+     }
+
+
+    var saveBtn = $(".saveBtn");
+    saveBtn.on('click', saveButton)
+
+
+    
+
 });
   
 
-    //     if (moment().isAfter("05:59 PM")) {
-    //         hours.addClass('past')
-    //     } else if (moment().isBefore("10 AM") & moment().isSameOrAfter("9 AM"))  {
-    //         hours.addClass('future') 
-    //         //except 9 hours.addClass("present")
-    //     } else if (moment().isBefore("11:00 AM")) {
-    //         hours.addClass('future') 
-    //         // except 9 10
-    //         // hours.addClass("present") 
-    //     } else if (moment().isBefore("12:00 PM")) {
-    //         hours.addClass('future') 
-    //         // except 9 10 11
-    //         //hours.addClass("present")
-    //     } else if (moment().isBefore("01:00 PM")) {
-    //         hours.addClass('future') 
-    //         // except 9 10 11 12
-    //         //hours.addClass("present")
-    //     } else if (moment().isBefore("02:00 PM")) {
-    //         hours.addClass('future') 
-    //         // except 9 10 11 12 1
-    //         //hours.addClass("present")
-    //     } else if (moment().isBefore("03:00 PM")) {
-    //         hours.addClass('future') 
-    //         // except 9 10 11 12 1 2
-    //         //hours.addClass("present")
-    //     } else if (moment().isBefore("04:00 PM")) {
-    //         hours.addClass('future') 
-    //         // except 9 10 11 12 1 2 3
-    //         //hours.addClass("present")
-    //     } else if (moment().isBefore("05:00 AM")) {
-    //         hours.addClass('future') 
-    //         // except 9 10 11 12 1 2 3 4
-    //         //hours.addClass("present")
-     
-
-    // })
+    
  
 
 
-    // Save BTN function to local storage 
-    // let eventStorage = localStorage.getItem("description")
-
-    // function saveButton() {
-    //     description.textContent = localStorage.getItem('description')
-
-      
-    // }
-    // button.addEventListener('click', saveButton)
-
-
-    
-
-    // need to import save options to local storage
+  
