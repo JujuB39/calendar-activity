@@ -6,6 +6,7 @@ $(document).ready(function() {
     var currentTime = $('#currentDay');
     var hours = $('.hour'); 
     var currentHour = parseInt(moment().format("H"));
+    console.log(hours)
 
 
     // Displays current time 
@@ -30,18 +31,22 @@ $(document).ready(function() {
     });
 
     //For each, function to assign colors 
-    hours.each(function (hoursDiv) {
-        let colorHour = parseInt(hoursDiv.id);
+    hours.each(function () {
+        let hour = $(this);
+        let hourId = parseInt(hour.get(0).id);
+        console.log(currentHour);
+        console.log(hour)
+        // let colorHour = . parseInt(hoursDiv.id);
+       
 
         // if else statements for colors 
-        if (currentHour === colorHour) {
-            hours.addClass("current");
-        } else if ((currentHour < colorHour) && (currentHour > colorHour - 6)) {
-            hours.addClass("future")
-        } else if ((currentHour > colorHour) && (currentHour < colorHour + 6)) {
-            hours.addClass("past")
+        if (currentHour === hourId) {
+            hour.addClass("present");
+        } else if (currentHour < hourId) {
+            hour.addClass("future")
+        } else  {
+            hour.addClass("past")
         }
-
     
     })
         
