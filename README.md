@@ -28,4 +28,7 @@ After this I went to work on my JavaScript. The first thing I did was gathered e
 
 Once I finished that I knew that my HTML divs that stored each our all needed a textarea as well as a save button. Instead of creating an individual one for each div, I used .each where I created a text area and a button that I could put on each div. This was super helpful and it made my HTML significantly shorter. After I completed that I knew I had to use .each once again so that I could color code my calendar. In order to color code my calendar I used if else statements for each color I was using in my calendar. 
 
-Once I completed that, I worked on getting my save button to work. In order to get this to work I had to incorporate local storage. 
+Once I completed that, I worked on getting my save button to work. In order to get this to work I had to incorporate local storage. I made sure to gather the values I needed first then set the items using local storage. I also made it so that it notified the user that their event was properly saved. With that notification I set a timer so that the notification would disappear after 5 seconds. Once I did that I needed to make sure that the event actually stayed on the page once the user refreshed the page. So I went back up to one of my .each functions and created a variable that got the text I needed and then I created an if statement to set that variable to the event text box. 
+
+## Screenshot of my page 
+![alt text](./Develop/screenshot.png "Screenshot")

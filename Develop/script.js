@@ -28,7 +28,6 @@ $(document).ready(function() {
         saveImg.setAttribute("src", "./saveimg.jpeg");
         saveImg.setAttribute("alt", "save image");
         saveImg.setAttribute("class", "save-img");
-
         button.appendChild(saveImg);
         element.appendChild(button);
         var storeEvent = localStorage.getItem(`description${element.id}`);
@@ -57,7 +56,6 @@ $(document).ready(function() {
      function saveButton() {
         var save = $(this).prev().val();
         var hourId =$(this).parent().get(0).id
-        console.log(hourId)
         localStorage.setItem(`description${hourId}`, save);
         saveEvent.prepend("<p class=\"saved-event\">Your event has been saved</p>")
         setTimeout(() => saveEvent.find('p:first').remove(), 5000)
